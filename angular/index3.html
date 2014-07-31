@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body ng-app>
+	<div ng-controller="getInp">
+		<form>
+			请输入值：<input type="text" ng-change="computeNeed()" ng-model="nums.num"/>	
+			实时查看 :{{needed}}
+		</form>
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script>
+		function getInp($scope){
+			$scope.nums={num:0};
+               var computeNeed=function(){
+               $scope.needed=$scope.nums.num*10;
+            }
+            $scope.$watch("nums.num",computeNeed)
+		}
+	</script>
+</body>
+</html>
